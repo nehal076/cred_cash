@@ -116,7 +116,7 @@ class AppTheme {
       onPrimaryContainer: Color(0xff1A1A1A),
       onPrimary: Color(0xFFFFFFFF),
       primaryContainer: Color(0xFFFFFFFF),
-      primary: Color(0xFF6750A4),
+      primary: AppColors.textColor,
     ),
   );
 }

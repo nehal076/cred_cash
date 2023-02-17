@@ -6,7 +6,6 @@ import 'package:cred/utils/app_bar.dart';
 import 'package:cred/utils/app_constants.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
-import 'package:cred/widgets/credit_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 
