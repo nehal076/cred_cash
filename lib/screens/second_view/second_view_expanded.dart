@@ -1,6 +1,6 @@
+import 'package:cred/utils/app_constants.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
-import 'package:cred/utils/styles.dart';
 import 'package:cred/widgets/credit_text.dart';
 import 'package:cred/widgets/rounded.dart';
 import 'package:expandable/expandable.dart';
@@ -24,7 +24,6 @@ class SecondViewExpanded extends StatelessWidget {
     return Rounded(
       backgroundColor: AppColors.backgroundShade2,
       child: Column(
-        mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
@@ -128,6 +127,31 @@ class SecondViewExpanded extends StatelessWidget {
               ],
             ),
           ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: InkWell(
+              onTap: () {
+                controller.toggle();
+              },
+              child: Container(
+                height: 90,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  color: AppColors.buttonColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(radius),
+                    topRight: Radius.circular(radius),
+                  ),
+                ),
+                child: Text(
+                  'Proceed to EMI selection',
+                  style: context.theme.textTheme.bodyMedium?.copyWith(
+                    color: AppColors.onButtonColor,
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

@@ -2,6 +2,8 @@ import 'package:cred/screens/first_view/first_view_collapsed.dart';
 import 'package:cred/screens/first_view/first_view_expanded.dart';
 import 'package:cred/screens/second_view/second_view_collapsed.dart';
 import 'package:cred/screens/second_view/second_view_expanded.dart';
+import 'package:cred/screens/third_view/third_view_collapsed.dart';
+import 'package:cred/screens/third_view/third_view_expanded.dart';
 import 'package:cred/utils/app_bar.dart';
 import 'package:cred/utils/app_constants.dart';
 import 'package:cred/utils/colors.dart';
@@ -25,6 +27,10 @@ class _SelectCreditState extends State<SelectCredit> {
     initialExpanded: true,
   );
 
+  ExpandableController thirdViewController = ExpandableController(
+    initialExpanded: true,
+  );
+
   @override
   void initState() {
     super.initState();
@@ -34,12 +40,26 @@ class _SelectCreditState extends State<SelectCredit> {
         setState(() {});
       });
     });
+
+    secondViewController.addListener(() {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        setState(() {});
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    secondViewController.expanded = !firstViewController.expanded;
+    if (!firstViewController.expanded && !secondViewController.expanded) {
+      thirdViewController.expanded = true;
+    } else if (!firstViewController.expanded) {
+      secondViewController.expanded = true;
+      thirdViewController.expanded = false;
+    }
+
     print("firstView.expanded: ${firstViewController.expanded}");
+    print("secondView.expanded: ${secondViewController.expanded}");
+    print("thirdView.expanded: ${thirdViewController.expanded}");
     return Scaffold(
       backgroundColor: AppColors.appBarBackground,
       appBar: const MyAppBar(),
@@ -61,53 +81,35 @@ class _SelectCreditState extends State<SelectCredit> {
                     ),
                   ),
                 ),
-                firstViewController.expanded == false
-                    ? Positioned(
-                        child: Column(
-                          children: [
-                            ExpandableNotifier(
-                              controller: secondViewController,
-                              child: Expandable(
-                                expanded: SecondViewExpanded(
-                                  controller: secondViewController,
-                                ),
-                                collapsed: SecondViewCollapsed(
-                                  controller: secondViewController,
-                                ),
-                              ),
-                            ),
-                          ],
+                !firstViewController.expanded
+                    ? ExpandableNotifier(
+                        controller: secondViewController,
+                        child: Expandable(
+                          expanded: SecondViewExpanded(
+                            controller: secondViewController,
+                          ),
+                          collapsed: SecondViewCollapsed(
+                            controller: secondViewController,
+                          ),
+                        ),
+                      )
+                    : Container(),
+                !firstViewController.expanded && !secondViewController.expanded
+                    ? ExpandableNotifier(
+                        controller: thirdViewController,
+                        child: Expandable(
+                          expanded: ThirdViewExpanded(
+                            controller: thirdViewController,
+                          ),
+                          collapsed: ThirdViewCollapsed(
+                            controller: thirdViewController,
+                          ),
                         ),
                       )
                     : Container(),
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: InkWell(
-              onTap: () {
-                firstViewController.toggle();
-              },
-              child: Container(
-                height: 90,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                  color: AppColors.buttonColor,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(radius),
-                    topRight: Radius.circular(radius),
-                  ),
-                ),
-                child: Text(
-                  'Proceed to EMI selection',
-                  style: context.theme.textTheme.bodyMedium?.copyWith(
-                    color: AppColors.onButtonColor,
-                  ),
-                ),
-              ),
-            ),
-          )
         ],
       ),
     );
