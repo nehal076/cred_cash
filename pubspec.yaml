@@ -28,29 +28,6 @@ flutter:
      - assets/images/
 
   fonts:
-     - family: FiraMono
-       fonts:
-         - asset: assets/fonts/FiraMono-Medium.ttf
-     - family: Indian-Rupee
-       fonts:
-          - asset: assets/fonts/Indian-Rupee.ttf
-     - family: Lato
-       fonts:
-             - asset: assets/fonts/Lato-Regular.ttf
-     - family: OCRAExtended
-       fonts:
-             - asset: assets/fonts/OCRAExtended.ttf
-     - family: OpenSans
-       fonts:
-             - asset: assets/fonts/OpenSans-Bold.ttf
-               weight: 500
-             - asset: assets/fonts/OpenSans-Regular.ttf
-               weight: 300
-             - asset: assets/fonts/OpenSans-SemiBold.ttf
-               weight: 400
-     - family: Roboto-Regular
-       fonts:
-             - asset: assets/fonts/Roboto-Regular.ttf
      - family: Gilroy
        fonts:
             - asset: assets/fonts/Gilroy/Gilroy-Bold.ttf
