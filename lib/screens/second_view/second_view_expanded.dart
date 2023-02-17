@@ -6,14 +6,6 @@ import 'package:cred/widgets/rounded.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 
-class Plan {
-  final String perMonth;
-  final String totalMonths;
-  final Color color;
-
-  Plan(this.perMonth, this.totalMonths, this.color);
-}
-
 class SecondViewExpanded extends StatelessWidget {
   const SecondViewExpanded({
     super.key,
@@ -140,4 +132,12 @@ class SecondViewExpanded extends StatelessWidget {
       ),
     );
   }
+}
+
+class Plan {
+  final String perMonth;
+  final String totalMonths;
+  final Color color;
+
+  Plan(this.perMonth, this.totalMonths, this.color);
 }

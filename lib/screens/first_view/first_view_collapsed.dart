@@ -1,5 +1,3 @@
-import 'package:cred/screens/second_view.dart/second_view_collapsed.dart';
-import 'package:cred/screens/second_view.dart/second_view_expanded.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:cred/widgets/rounded.dart';

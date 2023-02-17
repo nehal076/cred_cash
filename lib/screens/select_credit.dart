@@ -1,7 +1,7 @@
-import 'package:cred/screens/first_view.dart/first_view_collapsed.dart';
-import 'package:cred/screens/first_view.dart/first_view_expanded.dart';
-import 'package:cred/screens/second_view.dart/second_view_collapsed.dart';
-import 'package:cred/screens/second_view.dart/second_view_expanded.dart';
+import 'package:cred/screens/first_view/first_view_collapsed.dart';
+import 'package:cred/screens/first_view/first_view_expanded.dart';
+import 'package:cred/screens/second_view/second_view_collapsed.dart';
+import 'package:cred/screens/second_view/second_view_expanded.dart';
 import 'package:cred/utils/app_bar.dart';
 import 'package:cred/utils/app_constants.dart';
 import 'package:cred/utils/colors.dart';
