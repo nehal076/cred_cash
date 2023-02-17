@@ -28,10 +28,22 @@ flutter:
      - assets/images/
 
   fonts:
-     - family: Gilroy
-       fonts:
-            - asset: assets/fonts/Gilroy/Gilroy-Bold.ttf
-            - asset: assets/fonts/Gilroy/Gilroy-Medium.ttf
-            - asset: assets/fonts/Gilroy/Gilroy-Regular.ttf
-            - asset: assets/fonts/Gilroy/Gilroy-SemiBold.ttf
-            - asset: assets/fonts/Gilroy/Gilroy-Thin.ttf
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/Gilroy/Gilroy-Bold.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-Medium.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-Regular.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-SemiBold.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-Thin.ttf
+    - family: OverpassMono
+      fonts:
+        - asset: assets/fonts/OverpassMono/OverpassMono-Bold.ttf
+        - asset: assets/fonts/OverpassMono/OverpassMono-Light.ttf
+        - asset: assets/fonts/OverpassMono/OverpassMono-Medium.ttf
+        - asset: assets/fonts/OverpassMono/OverpassMono-Regular.ttf
+        - asset: assets/fonts/OverpassMono/OverpassMono-SemiBold.ttf
+    - family: Cirka
+      fonts:
+        - asset: assets/fonts/Cirka/Cirka-Bold.otf
+        - asset: assets/fonts/Cirka/Cirka-Light.otf
+        - asset: assets/fonts/Cirka/Cirka-Variable.ttf
