@@ -9,4 +9,7 @@ class AppColors {
   static const Color buttonColor = Color(0xff3E4CA6);
   static const Color textColor = Color(0xff8BADB6);
   static const Color onButtonColor = Color(0xffE3C0DA);
+  static const Color greenColor = Color(0xff79B06A);
+  static const Color progressBarColor = Color(0xffE19275);
+  static const Color trackColor = Color(0xffFFEBE1);
 }
