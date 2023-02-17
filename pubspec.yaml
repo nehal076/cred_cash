@@ -1,0 +1,58 @@
+name: cred
+description: Credit Loan App
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  expandable: ^5.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+     - assets/images/
+
+  fonts:
+     - family: FiraMono
+       fonts:
+         - asset: assets/fonts/FiraMono-Medium.ttf
+     - family: Indian-Rupee
+       fonts:
+          - asset: assets/fonts/Indian-Rupee.ttf
+     - family: Lato
+       fonts:
+             - asset: assets/fonts/Lato-Regular.ttf
+     - family: OCRAExtended
+       fonts:
+             - asset: assets/fonts/OCRAExtended.ttf
+     - family: OpenSans
+       fonts:
+             - asset: assets/fonts/OpenSans-Bold.ttf
+               weight: 500
+             - asset: assets/fonts/OpenSans-Regular.ttf
+               weight: 300
+             - asset: assets/fonts/OpenSans-SemiBold.ttf
+               weight: 400
+     - family: Roboto-Regular
+       fonts:
+             - asset: assets/fonts/Roboto-Regular.ttf
+     - family: Gilroy
+       fonts:
+            - asset: assets/fonts/Gilroy/Gilroy-Bold.ttf
+            - asset: assets/fonts/Gilroy/Gilroy-Medium.ttf
+            - asset: assets/fonts/Gilroy/Gilroy-Regular.ttf
+            - asset: assets/fonts/Gilroy/Gilroy-SemiBold.ttf
+            - asset: assets/fonts/Gilroy/Gilroy-Thin.ttf
