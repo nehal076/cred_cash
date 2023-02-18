@@ -19,14 +19,19 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            height: 40,
-            width: 40,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.iconBackground,
+          GestureDetector(
+            onTap: () {
+              if (Navigator.of(context).canPop()) Navigator.of(context).pop();
+            },
+            child: Container(
+              height: 40,
+              width: 40,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColors.iconBackground,
+              ),
+              child: const Icon(Icons.close),
             ),
-            child: const Icon(Icons.close),
           ),
           Container(
             height: 40,

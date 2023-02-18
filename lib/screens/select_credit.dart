@@ -1,7 +1,7 @@
 import 'package:cred/route/stack_page_route.dart';
 import 'package:cred/screens/first_view/first_view_expanded.dart';
-import 'package:cred/utils/app_bar.dart';
 import 'package:cred/utils/colors.dart';
+import 'package:cred/utils/extenstions.dart';
 import 'package:flutter/material.dart';
 import 'package:neopop/neopop.dart';
 
@@ -22,7 +22,6 @@ class _SelectCreditState extends State<SelectCredit> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.appBarBackground,
-      appBar: const MyAppBar(),
       body: Center(
         child: NeoPopTiltedButton(
           isFloating: true,
@@ -43,12 +42,13 @@ class _SelectCreditState extends State<SelectCredit> {
             shadowColor: AppColors.shadowColor,
             showShimmer: true,
           ),
-          child: const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 70.0,
-              vertical: 15,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 70.0, vertical: 15),
+            child: Text(
+              'CRED cash',
+              style: context.theme.textTheme.bodyMedium
+                  ?.copyWith(color: Colors.black),
             ),
-            child: Text('CRED cash'),
           ),
         ),
       ),
