@@ -1,6 +1,7 @@
 import 'package:cred/utils/app_constants.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
+import 'package:cred/widgets/bottom_button.dart';
 import 'package:cred/widgets/credit_text.dart';
 import 'package:cred/widgets/rounded.dart';
 import 'package:expandable/expandable.dart';
@@ -9,10 +10,7 @@ import 'package:flutter/material.dart';
 class ThirdViewExpanded extends StatelessWidget {
   const ThirdViewExpanded({
     super.key,
-    required this.controller,
   });
-
-  final ExpandableController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -93,31 +91,10 @@ class ThirdViewExpanded extends StatelessWidget {
               ],
             ),
           ),
-          // Align(
-          //   alignment: Alignment.bottomCenter,
-          //   child: InkWell(
-          //     onTap: () {
-          //       controller.toggle();
-          //     },
-          //     child: Container(
-          //       height: 90,
-          //       alignment: Alignment.center,
-          //       decoration: const BoxDecoration(
-          //         color: AppColors.buttonColor,
-          //         borderRadius: BorderRadius.only(
-          //           topLeft: Radius.circular(radius),
-          //           topRight: Radius.circular(radius),
-          //         ),
-          //       ),
-          //       child: Text(
-          //         'Tap for 1-click KYC',
-          //         style: context.theme.textTheme.bodyMedium?.copyWith(
-          //           color: AppColors.onButtonColor,
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // )
+          BottomButton(
+            onTap: () {},
+            text: 'Tap for 1-click KYC',
+          ),
         ],
       ),
     );
