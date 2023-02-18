@@ -1,3 +1,4 @@
+import 'package:cred/route/stack_page_route.dart';
 import 'package:cred/screens/first_view/first_view_collapsed.dart';
 import 'package:cred/screens/first_view/first_view_expanded.dart';
 import 'package:cred/screens/second_view/second_view_collapsed.dart';
@@ -10,6 +11,7 @@ import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:neopop/neopop.dart';
 
 class SelectCredit extends StatefulWidget {
   const SelectCredit({super.key});
@@ -64,78 +66,108 @@ class _SelectCreditState extends State<SelectCredit> {
     return Scaffold(
       backgroundColor: AppColors.appBarBackground,
       appBar: const MyAppBar(),
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ExpandableNotifier(
-                  controller: firstView,
-                  child: Expandable(
-                    expanded: FirstViewExpanded(
-                      controller: firstView,
-                    ),
-                    collapsed: FirstViewCollapsed(
-                      controller: firstView,
-                    ),
-                  ),
-                ),
-                !firstView.expanded
-                    ? ExpandableNotifier(
-                        controller: secondView,
-                        child: Expandable(
-                          expanded: SecondViewExpanded(
-                            controller: secondView,
-                          ),
-                          collapsed: SecondViewCollapsed(
-                            controller: secondView,
-                          ),
-                        ),
-                      )
-                    : Container(),
-                !firstView.expanded && !secondView.expanded
-                    ? ExpandableNotifier(
-                        controller: thirdView,
-                        child: Expandable(
-                          expanded: ThirdViewExpanded(
-                            controller: thirdView,
-                          ),
-                          collapsed: ThirdViewCollapsed(
-                            controller: thirdView,
-                          ),
-                        ),
-                      )
-                    : Container(),
-              ],
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: InkWell(
-              onTap: onButtonTap,
-              child: Container(
-                height: 90,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                  color: AppColors.buttonColor,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(radius),
-                    topRight: Radius.circular(radius),
-                  ),
-                ),
-                child: Text(
-                  getButtonText(),
-                  style: context.theme.textTheme.bodyMedium?.copyWith(
-                    color: AppColors.onButtonColor,
-                  ),
-                ),
+      body: Center(
+        child: NeoPopTiltedButton(
+          isFloating: true,
+          onTapUp: () {
+            Navigator.push(
+              context,
+              StackPagesRoute(
+                previousPages: [
+                  const SelectCredit(),
+                ],
+                newPage: const FirstViewExpanded(),
               ),
+            );
+          },
+          decoration: const NeoPopTiltedButtonDecoration(
+            color: Color.fromRGBO(255, 235, 52, 1),
+            plunkColor: Color.fromRGBO(255, 235, 52, 1),
+            shadowColor: Color.fromRGBO(36, 36, 36, 1),
+            showShimmer: true,
+          ),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 70.0,
+              vertical: 15,
             ),
-          )
-        ],
+            child: Text('Play Now'),
+          ),
+        ),
       ),
+
+      // Stack(
+      //   children: [
+      //     SingleChildScrollView(
+      //       child: Column(
+      //         mainAxisSize: MainAxisSize.max,
+      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //         children: [
+      //           ExpandableNotifier(
+      //             controller: firstView,
+      //             child: Expandable(
+      //               expanded: FirstViewExpanded(
+      //                 controller: firstView,
+      //               ),
+      //               collapsed: FirstViewCollapsed(
+      //                 controller: firstView,
+      //               ),
+      //             ),
+      //           ),
+      //           !firstView.expanded
+      //               ? ExpandableNotifier(
+      //                   controller: secondView,
+      //                   child: Expandable(
+      //                     expanded: SecondViewExpanded(
+      //                       controller: secondView,
+      //                     ),
+      //                     collapsed: SecondViewCollapsed(
+      //                       controller: secondView,
+      //                     ),
+      //                   ),
+      //                 )
+      //               : Container(),
+      //           !firstView.expanded && !secondView.expanded
+      //               ? ExpandableNotifier(
+      //                   controller: thirdView,
+      //                   child: Expandable(
+      //                     expanded: ThirdViewExpanded(
+      //                       controller: thirdView,
+      //                     ),
+      //                     collapsed: ThirdViewCollapsed(
+      //                       controller: thirdView,
+      //                     ),
+      //                   ),
+      //                 )
+      //               : Container(),
+      //         ],
+      //       ),
+      //     ),
+      //     Align(
+      //       alignment: Alignment.bottomCenter,
+      //       child: InkWell(
+      //         onTap: onButtonTap,
+      //         child: Container(
+      //           height: 90,
+      //           alignment: Alignment.center,
+      //           decoration: const BoxDecoration(
+      //             color: AppColors.buttonColor,
+      //             borderRadius: BorderRadius.only(
+      //               topLeft: Radius.circular(radius),
+      //               topRight: Radius.circular(radius),
+      //             ),
+      //           ),
+      //           child: Text(
+      //             getButtonText(),
+      //             style: context.theme.textTheme.bodyMedium?.copyWith(
+      //               color: AppColors.onButtonColor,
+      //             ),
+      //           ),
+      //         ),
+      //       ),
+      //     )
+      //   ],
+      // ),
     );
   }
 

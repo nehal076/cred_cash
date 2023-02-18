@@ -1,4 +1,4 @@
-import 'package:cred/utils/app_constants.dart';
+import 'package:cred/route/custom_stack.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:cred/widgets/credit_text.dart';
@@ -21,8 +21,8 @@ class SecondViewExpanded extends StatelessWidget {
       Plan("Rs.5,850", "9", const Color(0xff5B5970)),
       Plan("Rs.8,247", "6", const Color(0xff42556D)),
     ];
-    return Rounded(
-      backgroundColor: AppColors.backgroundShade2,
+    return CustomStack(
+      pageSizeProportion: .75,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

@@ -1,10 +1,7 @@
-import 'package:cred/utils/app_bar.dart';
-import 'package:cred/utils/app_constants.dart';
+import 'package:cred/route/custom_stack.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:cred/widgets/credit_text.dart';
-import 'package:cred/widgets/rounded.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 import 'package:flutter/services.dart';
@@ -12,15 +9,12 @@ import 'package:flutter/services.dart';
 class FirstViewExpanded extends StatelessWidget {
   const FirstViewExpanded({
     super.key,
-    required this.controller,
   });
-
-  final ExpandableController controller;
 
   @override
   Widget build(BuildContext context) {
-    return Rounded(
-      backgroundColor: AppColors.backgroundShade1,
+    return CustomStack(
+      pageSizeProportion: 0.85,
       child: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Column(
