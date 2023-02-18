@@ -1,7 +1,6 @@
+import 'package:cred/screens/splash_screen.dart';
 import 'package:cred/utils/theme.dart';
 import 'package:flutter/material.dart';
-
-import 'screens/select_credit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
-      home: const SelectCredit(),
+      home: const SplashScreen(),
+      
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color iconBackground = Color(0xff1D252C);
+  static const Color splashBackground = Color(0xff171717);
   static const Color appBarBackground = Color(0xff0C151C);
   static const Color backgroundShade1 = Color(0xff111922);
   static const Color backgroundShade2 = Color(0xff17222D);

@@ -120,5 +120,8 @@ class AppTheme {
       primaryContainer: Color(0xFFFFFFFF),
       primary: AppColors.textColor,
     ),
+    pageTransitionsTheme: const PageTransitionsTheme(builders: {
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+    }),
   );
 }
