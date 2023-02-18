@@ -1,4 +1,4 @@
-package com.example.cred
+package com.nehal.cred
 
 import io.flutter.embedding.android.FlutterActivity
 
