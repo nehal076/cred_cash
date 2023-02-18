@@ -2,7 +2,6 @@ import 'package:cred/utils/colors.dart';
 import 'package:cred/widgets/rounded.dart';
 import 'package:flutter/material.dart';
 
-/// Custom stack implementation
 class CustomStack extends StatelessWidget {
   final Widget child;
   final double pageSizeProportion;

@@ -38,9 +38,9 @@ class _SelectCreditState extends State<SelectCredit> {
             );
           },
           decoration: const NeoPopTiltedButtonDecoration(
-            color: Color.fromRGBO(255, 235, 52, 1),
-            plunkColor: Color.fromRGBO(255, 235, 52, 1),
-            shadowColor: Color.fromRGBO(36, 36, 36, 1),
+            color: AppColors.yellowColor,
+            plunkColor: AppColors.yellowColor,
+            shadowColor: AppColors.shadowColor,
             showShimmer: true,
           ),
           child: const Padding(

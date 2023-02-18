@@ -6,9 +6,10 @@ import 'package:cred/screens/select_credit.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:cred/widgets/bottom_button.dart';
+import 'package:cred/widgets/circular_slider/appearance.dart';
+import 'package:cred/widgets/circular_slider/circular_slider.dart';
 import 'package:cred/widgets/credit_text.dart';
 import 'package:flutter/material.dart';
-import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 import 'package:flutter/services.dart';
 
 class FirstViewExpanded extends StatelessWidget {
@@ -59,11 +60,13 @@ class FirstViewExpanded extends StatelessWidget {
                               trackColor: AppColors.trackColor,
                               shadowColor: AppColors.trackColor,
                               dotColor: AppColors.backgroundShade1,
+                              dotRadiusColor:
+                                  AppColors.progressBarDotRadiusColor,
                             ),
                             customWidths: CustomSliderWidths(
                               trackWidth: 18,
                               progressBarWidth: 18,
-                              handlerSize: 8,
+                              handlerSize: 12,
                             ),
                           ),
                           innerWidget: (percentage) {
@@ -76,7 +79,7 @@ class FirstViewExpanded extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  (percentage * 1500).ceil().formatNumber(),
+                                  (percentage * 4300).ceil().formatNumber(),
                                   style: context.theme.textTheme.bodyLarge
                                       ?.copyWith(
                                     color: Colors.black,

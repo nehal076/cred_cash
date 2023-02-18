@@ -1,4 +1,3 @@
-import 'package:cred/utils/app_constants.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +24,8 @@ class BottomButton extends StatelessWidget {
           decoration: const BoxDecoration(
             color: AppColors.buttonColor,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(radius),
-              topRight: Radius.circular(radius),
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
             ),
           ),
           child: Text(

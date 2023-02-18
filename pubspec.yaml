@@ -11,8 +11,6 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  expandable: ^5.0.1
-  sleek_circular_slider: ^2.0.1
   intl: ^0.18.0
   neopop: ^1.0.2
 

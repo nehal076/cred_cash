@@ -44,7 +44,7 @@ class SecondViewCollapsed extends StatelessWidget {
             ],
           ),
           const Icon(
-            Icons.arrow_drop_down_outlined,
+            Icons.keyboard_arrow_down_outlined,
             color: AppColors.textColor,
           ),
         ],

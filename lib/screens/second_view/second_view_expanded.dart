@@ -8,6 +8,7 @@ import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:cred/widgets/bottom_button.dart';
 import 'package:cred/widgets/credit_text.dart';
+import 'package:cred/widgets/recommended_chip.dart';
 import 'package:flutter/material.dart';
 
 class SecondViewExpanded extends StatelessWidget {
@@ -21,7 +22,7 @@ class SecondViewExpanded extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Plan> plans = [
       Plan("Rs.4,247", "12", const Color(0xff392F3A)),
-      Plan("Rs.5,850", "9", const Color(0xff5B5970)),
+      Plan("Rs.5,850", "9", const Color(0xff5B5970), recommended: true),
       Plan("Rs.8,247", "6", const Color(0xff42556D)),
     ];
     return CustomStack(
@@ -50,68 +51,78 @@ class SecondViewExpanded extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           itemCount: plans.length,
                           itemBuilder: (context, index) {
-                            return Container(
-                              width: 200,
-                              padding: const EdgeInsets.all(30),
-                              margin: const EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                color: plans[index].color,
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(20),
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: 50,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        width: 1,
-                                        color: AppColors.borderColor
-                                            .withOpacity(0.4),
-                                      ),
+                            return Stack(
+                              children: [
+                                Container(
+                                  width: 200,
+                                  padding: const EdgeInsets.all(30),
+                                  margin: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    color: plans[index].color,
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(20),
                                     ),
                                   ),
-                                  const SizedBox(height: 10),
-                                  Text.rich(
-                                    TextSpan(
-                                      children: [
-                                        const TextSpan(text: '₹4,247'),
-                                        TextSpan(
-                                          text: ' /mo',
-                                          style: context
-                                              .theme.textTheme.labelMedium
-                                              ?.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                            color: AppColors.textColor
-                                                .withOpacity(0.6),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 50,
+                                        width: 50,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            width: 1,
+                                            color: AppColors.borderColor
+                                                .withOpacity(0.4),
                                           ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      Text.rich(
+                                        TextSpan(
+                                          children: [
+                                            const TextSpan(text: '₹4,247'),
+                                            TextSpan(
+                                              text: ' /mo',
+                                              style: context
+                                                  .theme.textTheme.labelMedium
+                                                  ?.copyWith(
+                                                fontWeight: FontWeight.bold,
+                                                color: AppColors.textColor
+                                                    .withOpacity(0.6),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(height: 8),
+                                      Text(
+                                        'for 12 months',
+                                        style:
+                                            context.theme.textTheme.labelSmall,
+                                      ),
+                                      const SizedBox(height: 40),
+                                      Text(
+                                        'See calculations',
+                                        style: context
+                                            .theme.textTheme.labelSmall
+                                            ?.copyWith(
+                                          decorationColor: AppColors.textColor,
+                                          decoration: TextDecoration.underline,
+                                          decorationStyle:
+                                              TextDecorationStyle.dotted,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    'for 12 months',
-                                    style: context.theme.textTheme.labelSmall,
-                                  ),
-                                  const SizedBox(height: 40),
-                                  Text(
-                                    'See calculations',
-                                    style: context.theme.textTheme.labelSmall
-                                        ?.copyWith(
-                                      decorationColor: AppColors.textColor,
-                                      decoration: TextDecoration.underline,
-                                      decorationStyle:
-                                          TextDecorationStyle.dotted,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                                plans[index].recommended == true
+                                    ? const RecommendedChip()
+                                    : const SizedBox.shrink(),
+                              ],
                             );
                           },
                         ),
@@ -165,6 +176,7 @@ class Plan {
   final String perMonth;
   final String totalMonths;
   final Color color;
+  final bool? recommended;
 
-  Plan(this.perMonth, this.totalMonths, this.color);
+  Plan(this.perMonth, this.totalMonths, this.color, {this.recommended});
 }

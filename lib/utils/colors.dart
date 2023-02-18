@@ -11,7 +11,12 @@ class AppColors {
   static const Color onButtonColor = Color(0xffE3C0DA);
   static const Color greenColor = Color(0xff79B06A);
   static const Color progressBarColor = Color(0xffE19275);
+  static const Color progressBarDotRadiusColor = Color(0xffFFC4B1);
   static const Color trackColor = Color(0xffFFEBE1);
   static const Color borderColor = Color(0xffA7ACB2);
   static const Color checkboxBackground = Color(0xff39404C);
+  static const Color yellowColor = Color(0xffFFEB34);
+  static const Color shadowColor = Color(0xff242424);
+  static const Color chipColor = Color(0xffA2A7A7);
+  static const Color chipTextColor = Color(0xff525861);
 }
