@@ -1,24 +1,16 @@
 import 'package:cred/screens/second_view/second_view_expanded.dart';
-import 'package:cred/screens/third_view/third_view_expanded.dart';
-import 'package:cred/utils/app_bar.dart';
-import 'package:cred/utils/app_constants.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:cred/widgets/bottom_button.dart';
 import 'package:cred/widgets/credit_text.dart';
 import 'package:cred/widgets/rounded.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
-import 'package:flutter/services.dart';
 
 class FirstViewExpanded extends StatelessWidget {
   const FirstViewExpanded({
     super.key,
-    required this.controller,
   });
-
-  final ExpandableController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -90,9 +82,7 @@ class FirstViewExpanded extends StatelessWidget {
                         ],
                       );
                     },
-                    onChange: (_) {
-                      HapticFeedback.mediumImpact();
-                    },
+                    onChange: (_) {},
                   ),
                 ),
               ],

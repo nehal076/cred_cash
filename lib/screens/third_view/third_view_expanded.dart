@@ -1,10 +1,8 @@
-import 'package:cred/utils/app_constants.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:cred/widgets/bottom_button.dart';
 import 'package:cred/widgets/credit_text.dart';
 import 'package:cred/widgets/rounded.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 
 class ThirdViewExpanded extends StatelessWidget {

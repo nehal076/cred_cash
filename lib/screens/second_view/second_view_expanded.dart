@@ -1,5 +1,4 @@
 import 'package:cred/screens/third_view/third_view_expanded.dart';
-import 'package:cred/utils/app_constants.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:cred/widgets/bottom_button.dart';
