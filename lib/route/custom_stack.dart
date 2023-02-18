@@ -6,11 +6,13 @@ import 'package:flutter/material.dart';
 class CustomStack extends StatelessWidget {
   final Widget child;
   final double pageSizeProportion;
+  final Color backgroundColor;
 
   const CustomStack({
     super.key,
     required this.pageSizeProportion,
     required this.child,
+    required this.backgroundColor,
   });
 
   @override
@@ -30,13 +32,25 @@ class CustomStack extends StatelessWidget {
             ),
           ),
         ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Rounded(
-            width: screenSize.width,
-            height: screenSize.height * pageSizeProportion,
-            backgroundColor: AppColors.backgroundShade1,
-            child: child,
+        GestureDetector(
+          onVerticalDragUpdate: (details) {
+            int sensitivity = 8;
+            // Closing View on Swipe Down
+            if (details.delta.dy > sensitivity) {
+              popFromStack(context);
+            }
+          },
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Rounded(
+              width: screenSize.width,
+              height: screenSize.height * pageSizeProportion,
+              backgroundColor: AppColors.backgroundShade1,
+              child: Scaffold(
+                backgroundColor: backgroundColor,
+                body: child,
+              ),
+            ),
           ),
         ),
       ],
