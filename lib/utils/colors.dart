@@ -13,4 +13,5 @@ class AppColors {
   static const Color progressBarColor = Color(0xffE19275);
   static const Color trackColor = Color(0xffFFEBE1);
   static const Color borderColor = Color(0xffA7ACB2);
+  static const Color checkboxBackground = Color(0xff39404C);
 }

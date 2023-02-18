@@ -19,29 +19,29 @@ class SelectCredit extends StatefulWidget {
 }
 
 class _SelectCreditState extends State<SelectCredit> {
-  ExpandableController firstViewController = ExpandableController(
+  ExpandableController firstView = ExpandableController(
     initialExpanded: true,
   );
 
-  ExpandableController secondViewController = ExpandableController(
-    initialExpanded: true,
+  ExpandableController secondView = ExpandableController(
+    initialExpanded: false,
   );
 
-  ExpandableController thirdViewController = ExpandableController(
-    initialExpanded: true,
+  ExpandableController thirdView = ExpandableController(
+    initialExpanded: false,
   );
 
   @override
   void initState() {
     super.initState();
 
-    firstViewController.addListener(() {
+    firstView.addListener(() {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         setState(() {});
       });
     });
 
-    secondViewController.addListener(() {
+    secondView.addListener(() {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         setState(() {});
       });
@@ -50,59 +50,60 @@ class _SelectCreditState extends State<SelectCredit> {
 
   @override
   Widget build(BuildContext context) {
-    if (!firstViewController.expanded && !secondViewController.expanded) {
-      thirdViewController.expanded = true;
-    } else if (!firstViewController.expanded) {
-      secondViewController.expanded = true;
-      thirdViewController.expanded = false;
+    if (!firstView.expanded && secondView.expanded) {
+      thirdView.expanded = true;
+    } else if (!firstView.expanded &&
+        !secondView.expanded &&
+        !thirdView.expanded) {
+      secondView.expanded = true;
     }
 
-    print("firstView.expanded: ${firstViewController.expanded}");
-    print("secondView.expanded: ${secondViewController.expanded}");
-    print("thirdView.expanded: ${thirdViewController.expanded}");
+    print("firstView.expanded: ${firstView.expanded}");
+    print("secondView.expanded: ${secondView.expanded}");
+    print("thirdView.expanded: ${thirdView.expanded}");
     return Scaffold(
       backgroundColor: AppColors.appBarBackground,
       appBar: const MyAppBar(),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: Stack(
         children: [
           SingleChildScrollView(
             child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ExpandableNotifier(
-                  controller: firstViewController,
+                  controller: firstView,
                   child: Expandable(
                     expanded: FirstViewExpanded(
-                      controller: firstViewController,
+                      controller: firstView,
                     ),
                     collapsed: FirstViewCollapsed(
-                      controller: firstViewController,
+                      controller: firstView,
                     ),
                   ),
                 ),
-                !firstViewController.expanded
+                !firstView.expanded
                     ? ExpandableNotifier(
-                        controller: secondViewController,
+                        controller: secondView,
                         child: Expandable(
                           expanded: SecondViewExpanded(
-                            controller: secondViewController,
+                            controller: secondView,
                           ),
                           collapsed: SecondViewCollapsed(
-                            controller: secondViewController,
+                            controller: secondView,
                           ),
                         ),
                       )
                     : Container(),
-                !firstViewController.expanded && !secondViewController.expanded
+                !firstView.expanded && !secondView.expanded
                     ? ExpandableNotifier(
-                        controller: thirdViewController,
+                        controller: thirdView,
                         child: Expandable(
                           expanded: ThirdViewExpanded(
-                            controller: thirdViewController,
+                            controller: thirdView,
                           ),
                           collapsed: ThirdViewCollapsed(
-                            controller: thirdViewController,
+                            controller: thirdView,
                           ),
                         ),
                       )
@@ -110,8 +111,54 @@ class _SelectCreditState extends State<SelectCredit> {
               ],
             ),
           ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: InkWell(
+              onTap: onButtonTap,
+              child: Container(
+                height: 90,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  color: AppColors.buttonColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(radius),
+                    topRight: Radius.circular(radius),
+                  ),
+                ),
+                child: Text(
+                  getButtonText(),
+                  style: context.theme.textTheme.bodyMedium?.copyWith(
+                    color: AppColors.onButtonColor,
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
+  }
+
+  getButtonText() {
+    if (firstView.expanded == true) {
+      return 'Proceed to EMI selection';
+    }
+    if (secondView.expanded == true) {
+      return 'Select your bank account';
+    }
+
+    if (thirdView.expanded == true) {
+      return 'Tap for 1-click KYC';
+    }
+  }
+
+  onButtonTap() {
+    if (firstView.expanded == true) {
+      firstView.toggle();
+    } else if (secondView.expanded == true) {
+      secondView.toggle();
+    } else if (thirdView.expanded == true) {
+      thirdView.toggle();
+    }
   }
 }

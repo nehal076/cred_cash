@@ -42,6 +42,8 @@ class AppTheme {
       ),
       displayMedium: TextStyle(
         color: AppColors.textColor,
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
       ),
       displaySmall: TextStyle(
         color: AppColors.textColor,

@@ -29,12 +29,26 @@ class SecondViewCollapsed extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "credit amount",
+                    "EMI",
                     style: context.theme.textTheme.labelMedium,
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    "Rs. 1,50,000",
+                    "₹4,247 /mo",
+                    style: context.theme.textTheme.bodyMedium,
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "duration",
+                    style: context.theme.textTheme.labelMedium,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    "12 months",
                     style: context.theme.textTheme.bodyMedium,
                   ),
                 ],
@@ -42,7 +56,7 @@ class SecondViewCollapsed extends StatelessWidget {
               const Icon(
                 Icons.arrow_drop_down_outlined,
                 color: AppColors.textColor,
-              )
+              ),
             ],
           ),
         ),

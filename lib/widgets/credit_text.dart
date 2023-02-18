@@ -1,7 +1,5 @@
 import 'package:cred/utils/extenstions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class CreditText extends StatelessWidget {
   final String heading;

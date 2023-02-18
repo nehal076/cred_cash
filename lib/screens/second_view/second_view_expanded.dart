@@ -127,31 +127,31 @@ class SecondViewExpanded extends StatelessWidget {
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: InkWell(
-              onTap: () {
-                controller.toggle();
-              },
-              child: Container(
-                height: 90,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                  color: AppColors.buttonColor,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(radius),
-                    topRight: Radius.circular(radius),
-                  ),
-                ),
-                child: Text(
-                  'Proceed to EMI selection',
-                  style: context.theme.textTheme.bodyMedium?.copyWith(
-                    color: AppColors.onButtonColor,
-                  ),
-                ),
-              ),
-            ),
-          )
+          // Align(
+          //   alignment: Alignment.bottomCenter,
+          //   child: InkWell(
+          //     onTap: () {
+          //       controller.toggle();
+          //     },
+          //     child: Container(
+          //       height: 90,
+          //       alignment: Alignment.center,
+          //       decoration: const BoxDecoration(
+          //         color: AppColors.buttonColor,
+          //         borderRadius: BorderRadius.only(
+          //           topLeft: Radius.circular(radius),
+          //           topRight: Radius.circular(radius),
+          //         ),
+          //       ),
+          //       child: Text(
+          //         'Proceed to EMI selection',
+          //         style: context.theme.textTheme.bodyMedium?.copyWith(
+          //           color: AppColors.onButtonColor,
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );
