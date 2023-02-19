@@ -22,6 +22,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.appBarBackground,
+      appBar: AppBar(
+        elevation: 0,
+        leadingWidth: 0,
+        leading: Container(),
+        backgroundColor: Colors.transparent,
+      ),
       body: Center(
         child: NeoPopTiltedButton(
           isFloating: true,

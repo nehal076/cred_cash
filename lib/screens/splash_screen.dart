@@ -1,4 +1,4 @@
-import 'package:cred/screens/select_credit.dart';
+import 'package:cred/screens/home_screen.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -15,7 +15,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
+      Navigator.pushReplacement(
+        context,
         MaterialPageRoute(builder: (context) {
           return const HomeScreen();
         }),

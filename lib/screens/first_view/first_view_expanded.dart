@@ -3,7 +3,7 @@ import 'package:cred/route/custom_stack.dart';
 import 'package:cred/route/stack_page_route.dart';
 import 'package:cred/screens/first_view/first_view_collapsed.dart';
 import 'package:cred/screens/second_view/second_view_expanded.dart';
-import 'package:cred/screens/select_credit.dart';
+import 'package:cred/screens/home_screen.dart';
 import 'package:cred/utils/bloc/cred_cash_bloc.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
@@ -113,7 +113,7 @@ class Slider extends StatelessWidget {
           customWidths: CustomSliderWidths(
             trackWidth: 18,
             progressBarWidth: 18,
-            handlerSize: 12,
+            handlerSize: 14,
           ),
         ),
         innerWidget: (percentage) {

@@ -2,7 +2,7 @@ import 'package:cred/route/custom_stack.dart';
 import 'package:cred/route/stack_page_route.dart';
 import 'package:cred/screens/first_view/first_view_expanded.dart';
 import 'package:cred/screens/second_view/second_view_collapsed.dart';
-import 'package:cred/screens/select_credit.dart';
+import 'package:cred/screens/home_screen.dart';
 import 'package:cred/screens/third_view/third_view_expanded.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/emi_card.dart';
