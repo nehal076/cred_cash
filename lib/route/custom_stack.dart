@@ -16,7 +16,7 @@ class CustomStack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
 
     return Stack(
       children: [
@@ -26,7 +26,7 @@ class CustomStack extends StatelessWidget {
             onTap: () => popFromStack(context),
             child: Container(
               width: double.infinity,
-              height: screenSize.height * (4 - pageSizeProportion),
+              height: size.height * (pageSizeProportion),
               color: Colors.transparent,
             ),
           ),
@@ -42,8 +42,8 @@ class CustomStack extends StatelessWidget {
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Rounded(
-              width: screenSize.width,
-              height: screenSize.height * pageSizeProportion,
+              width: size.width,
+              height: size.height * pageSizeProportion,
               backgroundColor: AppColors.backgroundShade1,
               child: Scaffold(
                 backgroundColor: backgroundColor,

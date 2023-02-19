@@ -1,12 +1,15 @@
+import 'package:cred/models/cred_cash.dart';
 import 'package:cred/route/custom_stack.dart';
 import 'package:cred/route/screens.dart';
 import 'package:cred/screens/second_view/second_view_collapsed.dart';
+import 'package:cred/utils/bloc/cred_cash_bloc.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/emi_card.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:cred/widgets/bottom_button.dart';
 import 'package:cred/widgets/credit_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SecondViewExpanded extends StatefulWidget {
   const SecondViewExpanded({super.key, this.collapse});
@@ -23,6 +26,17 @@ class _SecondViewExpandedState extends State<SecondViewExpanded> {
     Plan(5859.formatNumber(), "9", const Color(0xff5B5970), recommended: true),
     Plan(8347.formatNumber(), "6", const Color(0xff42556D)),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    CredCash credCash = context.read<CredCashBloc>().credCash;
+    if (credCash.emiAmount == null) {
+      credCash.emiAmount = plans[0].perMonth;
+      credCash.duration = plans[0].totalMonths;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomStack(

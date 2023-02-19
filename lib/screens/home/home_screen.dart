@@ -1,5 +1,6 @@
 import 'package:cred/route/screens.dart';
 import 'package:cred/screens/home/widgets/profile_icon.dart';
+import 'package:cred/utils/app_bar.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:flutter/material.dart';
@@ -22,12 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.appBarBackground,
-      appBar: AppBar(
-        elevation: 0,
-        leadingWidth: 0,
-        leading: Container(),
-        backgroundColor: Colors.transparent,
-      ),
+      appBar: const MyAppBar(),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(40),

@@ -116,10 +116,10 @@ class _CurvePainter extends CustomPainter {
     canvas.drawCircle(handler, appearance.handlerSize, dotPaint);
 
     Offset lineP1 = degreesToCoordinates(
-        center!, -math.pi / 2 + startAngle + currentAngle + 1.5, radius - 4);
+        center!, -math.pi / 2 + startAngle + currentAngle + 1.5, radius - 6);
 
     Offset lineP2 = degreesToCoordinates(
-        center!, -math.pi / 2 + startAngle + currentAngle + 1.5, radius + 4);
+        center!, -math.pi / 2 + startAngle + currentAngle + 1.5, radius + 6);
     canvas.drawLine(lineP1, lineP2, linePaint);
   }
 
