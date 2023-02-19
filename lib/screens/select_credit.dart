@@ -5,14 +5,14 @@ import 'package:cred/utils/extenstions.dart';
 import 'package:flutter/material.dart';
 import 'package:neopop/neopop.dart';
 
-class SelectCredit extends StatefulWidget {
-  const SelectCredit({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<SelectCredit> createState() => _SelectCreditState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _SelectCreditState extends State<SelectCredit> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
@@ -30,7 +30,7 @@ class _SelectCreditState extends State<SelectCredit> {
               context,
               StackPagesRoute(
                 previousPages: [
-                  const SelectCredit(),
+                  const HomeScreen(),
                 ],
                 newPage: const FirstViewExpanded(),
               ),

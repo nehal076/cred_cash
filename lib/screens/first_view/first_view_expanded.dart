@@ -59,7 +59,7 @@ class _FirstViewExpandedState extends State<FirstViewExpanded> {
                       context,
                       StackPagesRoute(
                         previousPages: [
-                          const SelectCredit(),
+                          const HomeScreen(),
                           const FirstViewExpanded(collapse: true),
                         ],
                         newPage: const SecondViewExpanded(),
