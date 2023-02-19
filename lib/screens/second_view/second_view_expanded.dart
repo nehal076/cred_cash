@@ -1,9 +1,6 @@
 import 'package:cred/route/custom_stack.dart';
-import 'package:cred/route/stack_page_route.dart';
-import 'package:cred/screens/first_view/first_view_expanded.dart';
+import 'package:cred/route/screens.dart';
 import 'package:cred/screens/second_view/second_view_collapsed.dart';
-import 'package:cred/screens/home_screen.dart';
-import 'package:cred/screens/third_view/third_view_expanded.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/emi_card.dart';
 import 'package:cred/utils/extenstions.dart';
@@ -12,10 +9,8 @@ import 'package:cred/widgets/credit_text.dart';
 import 'package:flutter/material.dart';
 
 class SecondViewExpanded extends StatefulWidget {
-  const SecondViewExpanded({
-    super.key,
-    this.collapse,
-  });
+  const SecondViewExpanded({super.key, this.collapse});
+
   final bool? collapse;
 
   @override
@@ -24,9 +19,9 @@ class SecondViewExpanded extends StatefulWidget {
 
 class _SecondViewExpandedState extends State<SecondViewExpanded> {
   List<Plan> plans = [
-    Plan("Rs.4,247", "12", const Color(0xff392F3A)),
-    Plan("Rs.5,850", "9", const Color(0xff5B5970), recommended: true),
-    Plan("Rs.8,247", "6", const Color(0xff42556D)),
+    Plan(4247.formatNumber(), "12", const Color(0xff392F3A)),
+    Plan(5859.formatNumber(), "9", const Color(0xff5B5970), recommended: true),
+    Plan(8347.formatNumber(), "6", const Color(0xff42556D)),
   ];
   @override
   Widget build(BuildContext context) {
@@ -95,17 +90,7 @@ class _SecondViewExpandedState extends State<SecondViewExpanded> {
                 ),
                 BottomButton(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      StackPagesRoute(
-                        previousPages: [
-                          const HomeScreen(),
-                          const FirstViewExpanded(collapse: true),
-                          const SecondViewExpanded(collapse: true),
-                        ],
-                        newPage: const ThirdViewExpanded(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, Screens.third_view);
                   },
                   text: 'Select a bank account',
                 ),

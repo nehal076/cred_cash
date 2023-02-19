@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FirstViewCollapsed extends StatefulWidget {
-  const FirstViewCollapsed({
-    super.key,
-  });
+  const FirstViewCollapsed({super.key});
 
   @override
   State<FirstViewCollapsed> createState() => _FirstViewCollapsedState();

@@ -1,5 +1,5 @@
 import 'package:cred/route/custom_stack.dart';
-import 'package:cred/screens/success_screen.dart';
+import 'package:cred/route/screens.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:cred/widgets/bottom_button.dart';
@@ -7,9 +7,7 @@ import 'package:cred/widgets/credit_text.dart';
 import 'package:flutter/material.dart';
 
 class ThirdViewExpanded extends StatefulWidget {
-  const ThirdViewExpanded({
-    super.key,
-  });
+  const ThirdViewExpanded({super.key});
 
   @override
   State<ThirdViewExpanded> createState() => _ThirdViewExpandedState();
@@ -116,9 +114,7 @@ class _ThirdViewExpandedState extends State<ThirdViewExpanded> {
               Navigator.pop(context);
               Navigator.pop(context);
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const SuccessScreen();
-              }));
+              Navigator.pushNamed(context, Screens.success_view);
             },
             text: 'Tap for 1-click KYC',
           ),

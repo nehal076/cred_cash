@@ -3,9 +3,7 @@ import 'package:cred/utils/extenstions.dart';
 import 'package:flutter/material.dart';
 
 class SecondViewCollapsed extends StatelessWidget {
-  const SecondViewCollapsed({
-    super.key,
-  });
+  const SecondViewCollapsed({super.key});
 
   @override
   Widget build(BuildContext context) {
