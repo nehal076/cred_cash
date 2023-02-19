@@ -3,9 +3,7 @@ import 'package:cred/utils/extenstions.dart';
 import 'package:flutter/material.dart';
 
 class ThirdViewCollapsed extends StatelessWidget {
-  const ThirdViewCollapsed({
-    super.key,
-  });
+  const ThirdViewCollapsed({super.key});
 
   @override
   Widget build(BuildContext context) {

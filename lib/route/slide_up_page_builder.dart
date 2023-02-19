@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class StackPagesRoute extends PageRouteBuilder {
-  final Widget newPage;
-  final List<Widget> previousPages;
+class SlideUpRoute extends PageRouteBuilder {
+  final List<Widget> oldScreens;
+  final Widget nextScreen;
 
-  StackPagesRoute({
-    required this.previousPages,
-    required this.newPage,
+  SlideUpRoute({
+    required this.oldScreens,
+    required this.nextScreen,
   }) : super(
           pageBuilder: (
             BuildContext context,
             Animation<double> animation,
             Animation<double> secondaryAnimation,
           ) =>
-              newPage,
+              nextScreen,
           transitionsBuilder: (
             BuildContext context,
             Animation<double> animation,
@@ -21,16 +21,14 @@ class StackPagesRoute extends PageRouteBuilder {
             Widget child,
           ) {
             return Stack(
-              clipBehavior: Clip.hardEdge,
-              fit: StackFit.expand,
-              children: <Widget>[
-                ...previousPages,
+              children: [
+                ...oldScreens,
                 SlideTransition(
                   position: Tween<Offset>(
-                    begin: const Offset(0, 1.0),
+                    begin: const Offset(0, 1),
                     end: Offset.zero,
                   ).animate(animation),
-                  child: newPage,
+                  child: nextScreen,
                 ),
               ],
             );

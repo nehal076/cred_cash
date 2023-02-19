@@ -1,7 +1,10 @@
+import 'package:cred/models/cred_cash.dart';
+import 'package:cred/utils/bloc/cred_cash_bloc.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:cred/widgets/recommended_chip.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EmiCard extends StatelessWidget {
   const EmiCard({
@@ -13,6 +16,16 @@ class EmiCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (plan.isSelected == true) {
+      CredCashBloc credCashBloc = context.read<CredCashBloc>();
+      CredCash credCash = credCashBloc.credCash;
+
+      credCash.emiAmount = plan.perMonth;
+      credCash.duration = plan.totalMonths;
+
+      credCashBloc.add(UpdateCredit(credCash));
+    }
+
     return Stack(
       children: [
         Container(

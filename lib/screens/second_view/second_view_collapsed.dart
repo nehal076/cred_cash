@@ -1,12 +1,17 @@
+import 'package:cred/utils/bloc/cred_cash_bloc.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SecondViewCollapsed extends StatelessWidget {
-  const SecondViewCollapsed({
-    super.key,
-  });
+class SecondViewCollapsed extends StatefulWidget {
+  const SecondViewCollapsed({super.key});
 
+  @override
+  State<SecondViewCollapsed> createState() => _SecondViewCollapsedState();
+}
+
+class _SecondViewCollapsedState extends State<SecondViewCollapsed> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,7 +29,7 @@ class SecondViewCollapsed extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                "₹4,247 /mo",
+                "${context.read<CredCashBloc>().credCash.emiAmount} /mo",
                 style: context.theme.textTheme.bodyMedium,
               ),
             ],
@@ -38,7 +43,7 @@ class SecondViewCollapsed extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                "12 months",
+                "${context.read<CredCashBloc>().credCash.duration} months",
                 style: context.theme.textTheme.bodyMedium,
               ),
             ],
