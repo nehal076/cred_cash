@@ -1,6 +1,8 @@
+import 'package:cred/utils/bloc/cred_cash_bloc.dart';
 import 'package:cred/utils/colors.dart';
 import 'package:cred/utils/extenstions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FirstViewCollapsed extends StatefulWidget {
   const FirstViewCollapsed({
@@ -31,7 +33,7 @@ class _FirstViewCollapsedState extends State<FirstViewCollapsed> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    "₹1,50,000",
+                    "${context.read<CredCashBloc>().credCash.creditAmount}",
                     style: context.theme.textTheme.bodyMedium,
                   ),
                 ],
